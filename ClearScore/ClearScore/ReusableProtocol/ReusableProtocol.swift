@@ -1,8 +1,13 @@
-//
-//  ReusableProtocol.swift
-//  ClearScore
-//
-//  Created by kingjack on 2021/02/05.
-//
+protocol PresenterViewControllerLifeCycleProtocol {
+    func viewDidLoad()
+    func viewWillAppear()
+    func viewDidDisappear()
+    func viewWillDisappear()
+}
 
-import Foundation
+//we will make optional on viewWillAppear, viewDidDisappear, and viewWillDisappear
+extension PresenterViewControllerLifeCycleProtocol {
+    func viewWillAppear(){}
+    func viewDidDisappear(){}
+    func viewWillDisappear(){}
+}
