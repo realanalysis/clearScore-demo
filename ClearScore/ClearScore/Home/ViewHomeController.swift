@@ -1,17 +1,11 @@
-//
-//  ViewController.swift
-//  ClearScore
-//
-//  Created by kingjack on 2021/02/05.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewHomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.white
     }
 
 
