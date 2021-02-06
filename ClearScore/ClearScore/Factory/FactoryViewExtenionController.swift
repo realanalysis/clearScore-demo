@@ -1,18 +1,15 @@
 import UIKit
 
 extension FactoryView {
-    var navigationController: UINavigationController? {
-        guard let rootVC = viewController else {
-            return nil
-        }
-        let naviController = UINavigationController(rootViewController: rootVC)
+    var navigationController: UINavigationController {
+        let naviController = UINavigationController(rootViewController: viewController)
         naviController.navigationBar.isTranslucent = false
         return naviController
     }
 }
 
 extension FactoryView {
-    var viewController: UIViewController? {
+    var viewController: UIViewController {
         switch self {
         case .home:
             let view = ViewHomeController.init()

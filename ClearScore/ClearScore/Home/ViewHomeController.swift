@@ -1,4 +1,5 @@
 import UIKit
+import ClearScoreUIKit
 
 protocol ViewHomeControllerProtocol:class {
     func decorate(from viewModel: ViewModelHome)
@@ -6,7 +7,8 @@ protocol ViewHomeControllerProtocol:class {
 
 final class ViewHomeController: UIViewController {
     var presenter: PresenterHomeProtocol!
-
+    @IBOutlet weak var scoreView: ViewScoreDashBoard!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
@@ -18,6 +20,7 @@ extension ViewHomeController: ViewHomeControllerProtocol {
     func decorate(from viewModel: ViewModelHome) {
         self.view.backgroundColor  = viewModel.backgroundColor
         self.title = viewModel.title
+        scoreView.decorate(from: viewModel.scoreViewModel)
     }
 
 }
