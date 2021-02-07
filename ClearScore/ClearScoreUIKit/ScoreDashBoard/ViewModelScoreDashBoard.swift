@@ -7,10 +7,10 @@ public struct ViewModelScoreDashBoard {
     private(set) var title = (attribute: NSMutableAttributedString(), numOfLines: 3, alignemnt: NSTextAlignment.center)
     let pieSliceViewModel: ViewModelPieSlice
     
-    public init() {
-        title.attribute.append(NSAttributedString.init(text: "Loading ...",
+    public init(message: String) {
+        title.attribute.append(NSAttributedString.init(text: message,
                                                       textColor: UIColor.black,
-                                                      textFont: UIFont.systemFont(ofSize: 20, weight: .medium)))
+                                                      textFont: UIFont.systemFont(ofSize: 20, weight: .bold)))
         pieSliceViewModel = ViewModelPieSlice.init(percentage: CGFloat(0))
     }
     

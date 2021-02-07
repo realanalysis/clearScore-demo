@@ -5,7 +5,7 @@ public protocol RepositoryCreditProtocol: RepositoryProtocol {
 
 struct RepositoryCredit {
     private var statusCode: Int = -1
-    private var error: Error?
+    private var error: Error? = NSError(domain:"API", code:-1, userInfo:[ NSLocalizedDescriptionKey: "Cant read url"])
     private var response: Any?
     private var testing: Bool = false
     
@@ -26,10 +26,16 @@ struct RepositoryCredit {
         
         DispatchQueue.global(qos: .utility).async {
             URLSession.shared.dataTask(with: url) {(data, response, responseError) in
-                guard let data = data, let response = response as? HTTPURLResponse else { return  completion(-1, nil, nil)}
+                guard let data = data, let response = response as? HTTPURLResponse else { return  completion(-1, error, nil)}
                 do {
                     let tmpObjecs = try JSONDecoder().decode(T.self, from: data)
-                    completion(response.statusCode, nil, tmpObjecs)
+                    if response.statusCode == 200 {
+                        completion(response.statusCode, nil, tmpObjecs)
+                    } else {
+                        completion(response.statusCode, responseError ??  NSError(domain:"API", code:-1, userInfo:[ NSLocalizedDescriptionKey: "Cant reach end point"]), tmpObjecs)
+                    }
+                    
+                    
                 }   catch let error {
                     completion(response.statusCode, error, nil)
                 }

@@ -24,12 +24,12 @@ final class PresenterHome {
     private func makeRequest() {
         self.useCase.execute { [weak self] (error, entity) in
             guard let self = self else { return }
+            self.viewModel.transform(from: entity)
+
             if let error = error {
-            
-                return
+                self.router.presentAlertController(from: error.localizedDescription)
             }
             
-            self.viewModel.transform(from: entity)
             self.view.decorate(from: self.viewModel)
         }
     }
