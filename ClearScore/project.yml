@@ -1,10 +1,11 @@
 
-name: clearScore # The name of the App
+name: ClearScore # The name of the App
 options: # Some general settings for the project
   createIntermediateGroups: true # If the folders are nested, also nest the groups in Xcode
   indentWidth: 4 # indent by 4 spaces
   tabWidth: 4 # a tab is 4 spaces
   groupSortPosition: "top"
+  postGenCommand: "pod install --repo-update"
 configs: 
   Debug: debug
 
