@@ -27,5 +27,8 @@ project is spliting into 4 moudles
 each module will have their own unit test. 
 </p>
 
-Test case: you can test alert pop up by changing this url in the API Module
+<h2>Test alert pop up </h2>
+<p>
+you can test alert pop up by changing this url in the API Module
 https://5lfoiyb0b3.execute-api.us-west-2.amazonaws.com/prod/mockcredit/values
+</p>
