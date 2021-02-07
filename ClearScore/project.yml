@@ -111,6 +111,7 @@ targets: # The List of our targets
     deploymentTarget: 13.0
     sources:
       - path: "UnitTests/APIUnitTests"
+      - path: "UnitTests/Resources"
     dependencies:
         - target: API
        
@@ -120,6 +121,7 @@ targets: # The List of our targets
     deploymentTarget: 13.0
     sources:
       - path: "UnitTests/DomainUnitTests"
+      - path: "UnitTests/Resources"
     dependencies:
         - target: Domain
 
