@@ -1,4 +1,5 @@
 import UIKit
+import Domain
 
 extension FactoryView {
     var navigationController: UINavigationController {
@@ -17,7 +18,8 @@ extension FactoryView {
             let router = RouterHome.init(view)
             let presenter = PresenterHome.init(view: view,
                                                viewModel: viewModel,
-                                               router: router)
+                                               router: router,
+                                               useCase: FactoryDomain.shared.useCaseGetCredit)
             view.presenter = presenter
             return view
         }

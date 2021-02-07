@@ -12,16 +12,16 @@ final class ViewHomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-
     }
 }
 
 extension ViewHomeController: ViewHomeControllerProtocol {
     func decorate(from viewModel: ViewModelHome) {
-        self.view.backgroundColor  = viewModel.backgroundColor
-        self.title = viewModel.title
-        scoreView.decorate(from: viewModel.scoreViewModel)
+        DispatchQueue.main.async {
+            self.view.backgroundColor  = viewModel.backgroundColor
+            self.title = viewModel.title
+            self.scoreView.decorate(from: viewModel.scoreViewModel)
+        }
     }
-
 }
  
