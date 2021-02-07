@@ -21,7 +21,7 @@ final class PresenterHome {
         self.useCase = useCase
     }
     
-    private func makeRequest() {
+    func makeRequest() {
         self.useCase.execute { [weak self] (error, entity) in
             guard let self = self else { return }
             self.viewModel.transform(from: entity)

@@ -99,7 +99,7 @@ targets: # The List of our targets
   ClearScoreTests:
     type: bundle.unit-test
     platform: iOS
-    deploymentTarget: 12.0
+    deploymentTarget: 13.0
     sources:
       - path: "UnitTests/ClearScoreTests"
     dependencies:
