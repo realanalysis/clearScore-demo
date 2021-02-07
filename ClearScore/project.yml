@@ -1,0 +1,150 @@
+
+name: clearScore # The name of the App
+options: # Some general settings for the project
+  createIntermediateGroups: true # If the folders are nested, also nest the groups in Xcode
+  indentWidth: 4 # indent by 4 spaces
+  tabWidth: 4 # a tab is 4 spaces
+  groupSortPosition: "top"
+configs: 
+  Debug: debug
+
+#-------------------- presentation layer
+targets: # The List of our targets
+  ClearScore:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: ClearScore
+    settings:
+      configs:
+        Debug:
+          PRODUCT_BUNDLE_IDENTIFIER: com.clearScore
+      base:
+        INFOPLIST_FILE: ClearScore/info.plist
+        MARKETING_VERSION: 1.0.0
+        DEFINES_MODULE: true
+    dependencies:
+      - target: Domain
+      - target: ClearScoreUIKit
+
+
+#--------------------  UIKit framework
+  ClearScoreUIKit:
+    type: framework
+    platform: iOS
+    deploymentTarget: "13.0"
+    settings:
+      configs:
+        Debug:
+          PRODUCT_BUNDLE_IDENTIFIER: com.clearScoreUikit
+      base:
+        INFOPLIST_FILE: ClearScoreUIKit/info.plist
+        MARKETING_VERSION: 1.0.0
+    sources:
+      - path: "ClearScoreUIKit/ClearScoreUIKit.h"
+        headerVisibility: public
+      - path: "ClearScoreUIKit"
+        headerVisibility: project
+
+#-------------------- domain framework
+  Domain:
+    type: framework
+    platform: iOS
+    deploymentTarget: "13.0"
+    settings:
+      configs:
+        Debug:
+          PRODUCT_BUNDLE_IDENTIFIER: com.domain
+      base:
+        INFOPLIST_FILE: Domain/info.plist
+        MARKETING_VERSION: 1.0.0
+    sources:
+      - path: "Domain/Domain.h"
+        headerVisibility: public
+      - path: "Domain"
+        headerVisibility: project
+
+    dependencies:
+      - target: API
+
+#-------------------- api framework
+  API:
+    type: framework
+    platform: iOS
+    deploymentTarget: "13.0"
+    settings:
+      configs:
+        Debug:
+          PRODUCT_BUNDLE_IDENTIFIER: com.API
+      base:
+        INFOPLIST_FILE: API/info.plist
+        MARKETING_VERSION: 1.0.0
+    sources:
+      - path: "API/API.h"
+        headerVisibility: public
+      - path: "API"
+        headerVisibility: project
+
+##-------------------- unit test bundle
+#  APIUnitTests:
+#    type: bundle.unit-test
+#    platform: iOS
+#    deploymentTarget: 12.0
+#    sources:
+#      - path: "UnitTests/APIUnitTests"
+#      - path: "UnitTests/Resources"
+#    preBuildScripts:
+#         - script: |
+#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
+#    dependencies:
+#        - target: TakealotAPI
+#
+#  DomainUnitTests:
+#    type: bundle.unit-test
+#    platform: iOS
+#    deploymentTarget: 12.0
+#    sources:
+#      - path: "UnitTests/DomainUnitTests"
+#      - path: "UnitTests/APIUnitTests/Other"
+#      - path: "UnitTests/Resources"
+#    preBuildScripts:
+#         - script: |
+#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
+#    dependencies:
+#       - target: TakealotDomain
+#       - target: TakealotAPI
+#
+#  PresentationUnitTests:
+#    type: bundle.unit-test
+#    platform: iOS
+#    deploymentTarget: 12.0
+#    sources:
+#      - path: "UnitTests/PresentationUnitTests"
+#    preBuildScripts:
+#         - script: |
+#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
+#    dependencies:
+#       - target: takealot
+#
+#  TakealotUIKitUnitTests:
+#    type: bundle.unit-test
+#    platform: iOS
+#    deploymentTarget: 12.0
+#    sources:
+#      - path: "UnitTests/TakealotUIKitUnitTests"
+#    preBuildScripts:
+#         - script: |
+#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
+#    dependencies:
+#       - target: TakealotUIKit
+#
+#  PresentationUITests:
+#    type: bundle.ui-testing
+#    platform: iOS
+#    deploymentTarget: 12.0
+#    sources:
+#      - path: "UITests/PresentationUITests"
+#    preBuildScripts:
+#         - script: |
+#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
