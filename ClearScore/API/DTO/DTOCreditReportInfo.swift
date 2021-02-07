@@ -1,0 +1,31 @@
+
+public struct DTOCreditReportInfo: Codable {
+    public private(set) var score: Int?
+    public private(set) var scoreBand: Int?
+    public private(set) var clientRef: String?
+    public private(set) var status: String?
+    public private(set) var maxScoreValue: Int?
+    public private(set) var minScoreValue: Int?
+    public private(set) var monthsSinceLastDefaulted: Int?
+    public private(set) var hasEverDefaulted: Bool?
+    public private(set) var monthsSinceLastDelinquent: Int?
+    public private(set) var hasEverBeenDelinquent: Bool?
+    public private(set) var percentageCreditUsed: Int?
+    public private(set) var percentageCreditUsedDirectionFlag: Int?
+    public private(set) var changedScore: Int?
+    public private(set) var currentShortTermDebt: Int?
+    public private(set) var currentShortTermNonPromotionalDebt: Int?
+    public private(set) var currentShortTermCreditLimit: Int?
+    public private(set) var currentShortTermCreditUtilisation: Int?
+    public private(set) var changeInShortTermDebt: Int?
+    public private(set) var currentLongTermDebt: Int?
+    public private(set) var currentLongTermNonPromotionalDebt: Int?
+    public private(set) var currentLongTermCreditLimit: Int?
+    public private(set) var currentLongTermCreditUtilisation: Int?
+    public private(set) var changeInLongTermDebt: Int?
+    public private(set) var numPositiveScoreFactors: Int?
+    public private(set) var numNegativeScoreFactors: Int?
+    public private(set) var equifaxScoreBand: Int?
+    public private(set) var equifaxScoreBandDescription: String?
+    public private(set) var daysUntilNextReport: Int?
+}
