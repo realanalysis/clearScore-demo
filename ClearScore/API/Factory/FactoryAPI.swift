@@ -5,7 +5,7 @@ public protocol RepositoryProtocol {
 
 public enum FactoryAPI {
     case credit
-    case creditTest(statusCode: Int, error: Error?, response: DTOResponseCredit?)
+    case creditTest(statusCode: Int, error: Error?, JSONData: Data?)
 }
 
 extension FactoryAPI {
@@ -14,8 +14,8 @@ extension FactoryAPI {
         case .credit:
             let repo = RepositoryCredit.init()
             return repo
-        case let .creditTest(statusCode, error, response):
-            let repo = RepositoryCredit.init(statusCode: statusCode, error: error, response: response)
+        case let .creditTest(statusCode, error, data):
+            let repo = RepositoryCredit.init(statusCode: statusCode, error: error, JSONData: data)
             return repo
         }
     }
