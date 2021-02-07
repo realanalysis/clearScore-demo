@@ -88,64 +88,38 @@ targets: # The List of our targets
         headerVisibility: project
 
 ##-------------------- unit test bundle
-#  APIUnitTests:
-#    type: bundle.unit-test
-#    platform: iOS
-#    deploymentTarget: 12.0
-#    sources:
-#      - path: "UnitTests/APIUnitTests"
-#      - path: "UnitTests/Resources"
-#    preBuildScripts:
-#         - script: |
-#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
-#    dependencies:
-#        - target: TakealotAPI
-#
-#  DomainUnitTests:
-#    type: bundle.unit-test
-#    platform: iOS
-#    deploymentTarget: 12.0
-#    sources:
-#      - path: "UnitTests/DomainUnitTests"
-#      - path: "UnitTests/APIUnitTests/Other"
-#      - path: "UnitTests/Resources"
-#    preBuildScripts:
-#         - script: |
-#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
-#    dependencies:
-#       - target: TakealotDomain
-#       - target: TakealotAPI
-#
-#  PresentationUnitTests:
-#    type: bundle.unit-test
-#    platform: iOS
-#    deploymentTarget: 12.0
-#    sources:
-#      - path: "UnitTests/PresentationUnitTests"
-#    preBuildScripts:
-#         - script: |
-#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
-#    dependencies:
-#       - target: takealot
-#
-#  TakealotUIKitUnitTests:
-#    type: bundle.unit-test
-#    platform: iOS
-#    deploymentTarget: 12.0
-#    sources:
-#      - path: "UnitTests/TakealotUIKitUnitTests"
-#    preBuildScripts:
-#         - script: |
-#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
-#    dependencies:
-#       - target: TakealotUIKit
-#
-#  PresentationUITests:
-#    type: bundle.ui-testing
-#    platform: iOS
-#    deploymentTarget: 12.0
-#    sources:
-#      - path: "UITests/PresentationUITests"
-#    preBuildScripts:
-#         - script: |
-#                   "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" "$SRCROOT"
+
+  ClearScoreUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: 13.0
+    sources:
+      - path: "UnitTests/ClearScoreUITests"
+      
+  ClearScoreTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: 12.0
+    sources:
+      - path: "UnitTests/ClearScoreTests"
+    dependencies:
+       - target: ClearScore
+       
+  APIUnitTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: 13.0
+    sources:
+      - path: "UnitTests/APIUnitTests"
+    dependencies:
+        - target: API
+       
+  DomainUnitTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: 13.0
+    sources:
+      - path: "UnitTests/DomainUnitTests"
+    dependencies:
+        - target: Domain
+
