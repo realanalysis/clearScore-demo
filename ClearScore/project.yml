@@ -95,6 +95,8 @@ targets: # The List of our targets
     deploymentTarget: 13.0
     sources:
       - path: "UnitTests/ClearScoreUITests"
+    dependencies:
+      - target: ClearScore
       
   ClearScoreTests:
     type: bundle.unit-test

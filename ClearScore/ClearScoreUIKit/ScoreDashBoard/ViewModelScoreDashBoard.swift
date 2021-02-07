@@ -4,7 +4,7 @@ public struct ViewModelScoreDashBoard {
     let backgroundColor = UIColor.white
     let outterBorder = (color: UIColor.black.cgColor, width: CGFloat(2))
     let highLightColor = UIColor.orange
-    private(set) var title = (attribute: NSMutableAttributedString(), numOfLines: 3, alignemnt: NSTextAlignment.center)
+    private(set) var title = (attribute: NSMutableAttributedString(), numOfLines: 3, alignemnt: NSTextAlignment.center, accessibilityIdentifier: "ViewModelScoreDashBoardTitle")
     let pieSliceViewModel: ViewModelPieSlice
     
     public init(message: String) {

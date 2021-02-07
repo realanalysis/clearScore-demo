@@ -30,6 +30,7 @@ extension ViewScoreDashBoard {
         title.attributedText = viewModel.title.attribute
         title.textAlignment = viewModel.title.alignemnt
         title.numberOfLines = viewModel.title.numOfLines
+        title.accessibilityIdentifier = viewModel.title.accessibilityIdentifier
 
         pieSlice.decroate(from: viewModel.pieSliceViewModel, on: self.bounds.size)
     }
